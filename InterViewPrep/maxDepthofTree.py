@@ -1,4 +1,4 @@
-# Optimal Solution - ?
+# Optimal Solution
 # Time Complexity - O(n) Recursion but every node is computed exactly once
 # Space COmplexity - O(h) Height of the Tree
 
