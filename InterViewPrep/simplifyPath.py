@@ -1,3 +1,4 @@
+# Need to review this question more and understand end to end
 class Solution:
     def simplifyPath(self, path: str) -> str:
         stack=[]
