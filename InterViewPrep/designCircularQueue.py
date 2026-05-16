@@ -1,6 +1,6 @@
 # Optimal Solution
 # Most of the functions are simple if Doubly linked list implementation is clear
-# Need to look at enQueue and deQueue again
+# Need to look at enQueue and deQueue again 
 class ListNode:
     def __init__(self, val,next,prev):
         self.val, self.next, self.prev = val, next, prev
