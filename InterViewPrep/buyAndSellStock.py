@@ -1,3 +1,18 @@
+# My 2nd Solution
+# Time Complexity = O(n) 
+# Space Complexity = O(1)
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        maxProf = 0
+        l=0
+        for r in range(1, len(prices)):
+            if prices[l] > prices[r]:
+                l=r
+            else:
+                maxProf = max(maxProf, prices[r]-prices[l])
+        return maxProf
+        
+
 # Optimal Solution
 # Time Complexity = O(n)
 # Space Complexity = O(1)
