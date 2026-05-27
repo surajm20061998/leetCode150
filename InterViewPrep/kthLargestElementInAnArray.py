@@ -1,18 +1,12 @@
 # My Solution
-# Maybe not most optimal but no sorting involved
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        heapify(nums)
-        while len(nums) > k:
-            heappop(nums)
-        return nums[0]
-
-# Another solution
-# Just sort the solution as is and return kth largest element
-class Solution:
-    def findKthLargest(self, nums: List[int], k: int) -> int:
-        nums.sort()
-        return nums[len(nums) - k]
+        nums = [-x for x in nums]
+        heapq.heapify(nums)
+        largest = nums[0]
+        for _ in range(k):
+            largest = heapq.heappop(nums) * -1
+        return largest
     
 #Better solution is using Quick Select (See and do question again)
 class Solution:

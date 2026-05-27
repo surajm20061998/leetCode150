@@ -1,20 +1,18 @@
-# My Initial Solution
+# My Solution
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        distList = [] # (dist, x,y)
 
-        ansdict = {}
-
-        for i,p in enumerate(points):
-            x=p[0]
-            y=p[1]
+        for x,y in points:
             dist = (x**2 + y**2)**0.5
-            ansdict[i] = dist
-        sorted_keys = sorted(ansdict, key=ansdict.get)
-        print(sorted_keys)
+            distList.append((dist,x,y))
+        heapq.heapify(distList)
         ans = []
-        for i in range(k):
-            ans.append(points[sorted_keys[i]])
+        for _ in range(k):
+            tmpD,tmpX, tmpY = heapq.heappop(distList)
+            ans.append([tmpX, tmpY])
         return ans
+        
 
 
 # Correct way to do it -> using a minheap
