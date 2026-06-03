@@ -1,4 +1,6 @@
 # My 2nd Solution
+# Pattern - Sliding Window / Two Pointers
+# Data Structure - Array input, two pointers
 # Time Complexity = O(n) 
 # Space Complexity = O(1)
 class Solution:

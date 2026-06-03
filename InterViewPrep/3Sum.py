@@ -1,6 +1,7 @@
-# Optimal Solution
+# Pattern - Two Pointer
+# Data Structure - Set
 # Time - O(n^2)
-# Space - O(k) 
+# O(log n + k)
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
