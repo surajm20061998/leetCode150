@@ -2,6 +2,15 @@
 # Need to study this again
 # Time Complexity = O(n)
 # Space COmplexity = O(m)
+
+# In a nutshell - 
+# If current word is valid:
+#     add it to the window
+#     shrink only if we have too many copies of that word
+#     if window has all required words, record answer
+# If current word is invalid:
+#     reset the window.
+
 from collections import Counter, defaultdict
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
