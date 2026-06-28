@@ -24,6 +24,3 @@ class Solution:
                 start +=1
             ans = max(ans, count)
         return ans if ans!=-1 else 1
-
-
-        

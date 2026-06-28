@@ -4,15 +4,18 @@
 # Space Complexity = O(k)
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        count = {}
-        start = 0
+        # Validity condition -> windowLen - countOfMostFrequent <= k
+        # Expand window till validity condition 
+        # Then slide the window
+
+        freq = {}
+        l=0
         res = -1
-
-        for end in range(len(s)):
-            count[s[end]] = 1 + count.get(s[end], 0)
-
-            while (end-start+1) - max(count.values()) > k: # window condition
-                count[s[start]] -= 1
-                start+=1
-            res = max(res, end-start+1)
-        return res
+        for r in range(len(s)):
+            freq[s[r]] = 1 + freq.get(s[r],0)
+            while ((r-l+1) - max(freq.values())) > k:
+                freq[s[l]]-=1
+                l+=1
+            res = max(res, r-l+1)
+        return res if res!=-1 else 1
+        

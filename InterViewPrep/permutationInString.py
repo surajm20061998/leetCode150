@@ -29,7 +29,7 @@ class Solution:
         for end in range(len(s2)):
             window[s2[end]] += 1
 
-            if (end - start + 1) > winLen:
+            while (end - start + 1) > winLen:
                 window[s2[start]] -= 1
                 if window[s2[start]] == 0:
                     del window[s2[start]]

@@ -37,4 +37,36 @@ class Solution:
         l,r = res
         return s[l:r+1] if resLen != float("infinity") else ""
 
+
+
+    
+# Another Solution
+# Similar Time and Space Complexity
+from collections import Counter
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        tWindow = Counter(t)
+        sWindow = Counter()
+        have,need = 0, len(tWindow)
+        res, resLen = [-1,-1], float("inf")
+        l = 0
+
+        for r in range(len(s)):
+            sWindow[s[r]]+=1
+
+            if s[r] in tWindow and sWindow[s[r]]==tWindow[s[r]]:
+                have+=1
+
+            while(have==need):
+                if r-l+1 < resLen:
+                    res = [l,r]
+                    resLen = r-l+1
+
+                sWindow[s[l]]-=1
+                if s[l] in tWindow and sWindow[s[l]]<tWindow[s[l]]:
+                    have -= 1
+                l+=1
+        l,r = res
+        return s[l:r+1] if resLen!=float("inf") else ""        
+
         

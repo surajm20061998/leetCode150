@@ -30,7 +30,7 @@ class Solution:
         for end in range(len(s)):
             window[s[end]] += 1
 
-            if (end - start + 1) > winLen:
+            while (end - start + 1) > winLen:
                 window[s[start]] -= 1
                 if window[s[start]] == 0:
                     del window[s[start]]
