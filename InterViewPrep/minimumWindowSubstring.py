@@ -67,6 +67,44 @@ class Solution:
                     have -= 1
                 l+=1
         l,r = res
-        return s[l:r+1] if resLen!=float("inf") else ""        
+        return s[l:r+1] if resLen!=float("inf") else ""   
+    
+    
+# Sliding Window
+# Time Complexity = O(n)
+# Space Complexity = O(m)
+# n = len(s), m = len(words)
+from collections import Counter, defaultdict
+class Solution:
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+
+        wordLen = len(words[0])
+        numWords = len(words)
+        wordsWindow = Counter(words)
+        ans = []
+
+        for offset in range(wordLen):
+            l = offset
+            sWindow = defaultdict(int)
+            count = 0
+
+            for r in range(offset,len(s)-wordLen+1, wordLen):
+                tmp = s[r:r+wordLen]
+                if tmp in wordsWindow:
+                    sWindow[tmp]+=1
+                    count+=1
+
+                    while sWindow[tmp] > wordsWindow[tmp]:
+                        leftWord = s[l:l+wordLen]
+                        sWindow[leftWord] -= 1
+                        count -=1
+                        l+=wordLen
+                    if count == numWords:
+                        ans.append(l)
+                else:
+                    sWindow.clear()
+                    count = 0
+                    l=r+wordLen
+        return ans     
 
         
