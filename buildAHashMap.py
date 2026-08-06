@@ -1,5 +1,5 @@
 class ListNode:
-    def __init__(self, key, value=-1, next=None):
+    def __init__(self, key=-1, value=-1, next=None):
         self.key = key
         self.value = value
         self.next = next
@@ -7,7 +7,8 @@ class ListNode:
 class MyHashMap:
 
     def __init__(self):
-        self.map = [ListNode(0) for i in range(1000)]
+        self.map = [ListNode() for i in range(1000)]
+        
         
     def hash(self, key):
         return key%len(self.map)
@@ -16,29 +17,28 @@ class MyHashMap:
         curr = self.map[self.hash(key)]
         while curr.next:
             if curr.next.key == key:
-                curr.next.value = value
+                curr.next.value = value 
                 return
-            curr=curr.next
+            curr = curr.next
         curr.next = ListNode(key,value)
-        
         
 
     def get(self, key: int) -> int:
-        curr = self.map[self.hash(key)]
-        while curr.next:
-            if curr.next.key==key:
-                return curr.next.value
-            curr=curr.next
+        curr = self.map[self.hash(key)].next
+        while curr:
+            if curr.key == key:
+                return curr.value
+            curr = curr.next
         return -1
         
 
     def remove(self, key: int) -> None:
         curr = self.map[self.hash(key)]
         while curr and curr.next:
-            if curr.next.key==key:
+            if curr.next.key == key:
                 curr.next = curr.next.next
-                return
-            curr=curr.next
+                return 
+            curr = curr.next
         
 
 

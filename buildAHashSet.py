@@ -6,12 +6,16 @@ class ListNode:
 class MyHashSet:
 
     def __init__(self):
+        # Creating a dummy entry for each entry
         self.set = [ListNode(0) for i in range(10**4)]
         
 
     def add(self, key: int) -> None:
+        #hash function -> key%len(self.set)
         curr = self.set[key%len(self.set)]
+        # add the element at the end of the list
         while curr.next:
+            #if key already exists
             if curr.next.key==key:
                 return
             curr = curr.next
