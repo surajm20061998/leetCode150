@@ -1,3 +1,4 @@
+# Binary Search / Sliding Window Problem, need to loo at againß
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
         l,r = 0, len(arr)-k
