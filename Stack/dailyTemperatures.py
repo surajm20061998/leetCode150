@@ -19,6 +19,7 @@ class Solution:
 #Optimal Solution
 #Time Complexity - O(n)
 #Space Complexity - O(n)
+# Asked in C3 AI, need to check again
 
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
