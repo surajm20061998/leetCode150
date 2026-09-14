@@ -1,4 +1,6 @@
 # Optimal Solution
+# Take Pairs of 2 linkedLists and keep merging them
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
