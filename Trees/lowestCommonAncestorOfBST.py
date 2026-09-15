@@ -1,6 +1,7 @@
 #Optimal Solution
 #TIme Complexity - O(n)
 #Space COmplexity - O(h)
+# Iterate the tree to find the split
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -14,9 +15,9 @@ class Solution:
         curr = root
 
         while curr:
-            if (p.val > curr.val and q.val > curr.val):
+            if (p.val > curr.val and q.val > curr.val): # go right
                 curr=curr.right
-            elif (p.val < curr.val and q.val < curr.val):
+            elif (p.val < curr.val and q.val < curr.val): # go left
                 curr = curr.left
-            else:
+            else: # split condition
                 return curr
