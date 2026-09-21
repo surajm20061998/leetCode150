@@ -1,3 +1,5 @@
+# Initial mistake with my solution was that I kept checking for prevValue rather than maxValue
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
