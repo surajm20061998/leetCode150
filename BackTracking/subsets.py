@@ -14,6 +14,19 @@ class Solution:
         dfs(0)
         return ans
             
+# Another way to solve it
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        
+        def dfs(start, subset):
+            ans.append(subset.copy())
+            for i in range(start, len(nums)):
+                subset.append(nums[i])
+                dfs(i+1, subset)
+                subset.pop()
+        dfs(0,[])
+        return ans            
             
             
         
