@@ -30,4 +30,34 @@ class Solution:
             else :
                 l = i+1
 
-        
+
+# An easier acceptable solution as well
+# Use Two pointer approach to merge 2 sorted arrays
+# Then just find the median
+# uses extra space and is not the most efficient, but an acceptable brute force solution
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+
+        #merge
+        nums3 = []
+        l1,l2 = 0,0
+        while l1<len(nums1) and l2<len(nums2):
+            if nums1[l1] < nums2[l2]:
+                nums3.append(nums1[l1])
+                l1+=1
+            else:
+                nums3.append(nums2[l2])
+                l2+=1
+        while l1<len(nums1):
+            nums3.append(nums1[l1])
+            l1+=1
+        while l2<len(nums2):
+            nums3.append(nums2[l2])
+            l2+=1
+        print(nums3)
+        n = len(nums3) 
+        mid = n//2
+        if n%2==0:
+            return (nums3[mid-1] + nums3[mid])/2
+        else:
+            return nums3[mid]    
