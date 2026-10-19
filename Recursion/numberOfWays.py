@@ -1,3 +1,5 @@
+# Kind of stupid way to do it but very simple to think of - lol!!
+
 import sys
 sys.setrecursionlimit(1000000)
 class Solution:
@@ -28,3 +30,7 @@ def main():
  
 if __name__ == '__main__':
     main()
+    
+    
+# better way to do it - 
+
