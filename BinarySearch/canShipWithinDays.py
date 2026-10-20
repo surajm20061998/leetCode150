@@ -1,12 +1,17 @@
+# Binary Search problem
+
+# Understood the Binary Search Part, need to understand the capacity function
+# Binary search part is similar to coco eating bananas
+
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         # function to determine if current capacity can ship it in given days
         def canShip(cap):
             ships, currCap = 1,cap
             for w in weights:
-                if currCap -w <0:
+                if currCap -w <0:   # if capacity is -ive means the ship cannot hold anymore so just add a new ship
                     ships+=1
-                    currCap = cap
+                    currCap = cap   # Since a new ship is added current capacity is reset
                 currCap -=w
             return ships<=days
 
