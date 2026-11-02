@@ -12,3 +12,18 @@ class Solution:
             currMin = min(candidates)
             res = max(res,currMax)
         return res
+    
+# Saw it again -> 
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        # Maintain the maximum and minimum possible subarray product for each element
+        res = max(nums)
+        currMin, currMax = 1,1
+
+        for n in nums:
+            tmp = currMax*n
+            currMax = max(n*currMax, n*currMin, n)
+            currMin = min(tmp, n*currMin, n)
+            res = max(currMax, res)
+        return res
+        
