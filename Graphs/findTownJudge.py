@@ -12,4 +12,22 @@ class Solution:
         for i in range(1,n+1):
             if incomingList[i] == n-1 and outgoingList[i] == 0:
                 return i
-        return -1        
+        return -1 
+    
+# Saw this problem again applied a much more brute force solution
+class Solution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        edges = {}
+        for u,v in trust:
+            if u not in edges:
+                edges[u] = set()
+            edges[u].add(v)
+        print(edges)
+        ans = -1
+        for i in range(1,n+1):
+            if i not in edges:
+                for key,values in edges.items():
+                    if i not in values:
+                        return -1
+                ans = i
+        return ans       
