@@ -1,5 +1,5 @@
-# Need to understand the delete conditions again
-# 
+# Time Complexity -> O(h) -> h=height of the BST
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -17,16 +17,16 @@ class Solution:
         elif key < root.val: # Traverse left
             root.left = self.deleteNode(root.left, key)
         else : # Key found
-            if not root.right:
+            if not root.right: # If the right subtree is empty return the left subtree
                 return root.left
-            elif not root.left:
+            elif not root.left: # If the left subtree is empty return the right subtree
                 return root.right
-            
-            curr = root.right
-            while curr.left:
-                curr = curr.left
-            root.val = curr.val
-            root.right = self.deleteNode(root.right, root.val)
+            else : # Final condition -> Just find the min from the right subtree and return it
+                curr = root.right
+                while curr.left:
+                    curr = curr.left
+                root.val = curr.val
+                root.right = self.deleteNode(root.right, root.val)
         return root
     
         

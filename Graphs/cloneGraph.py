@@ -32,20 +32,23 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 """
-
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
 
-        bookeeping = {} # hashmap for storing and keeping track of nodes already cloned
+        if not node:
+            return None
 
+        nodeMap = {} # node and copy structures
         def dfs(node):
-            if node in bookeeping:
-                return bookeeping[node]
+            if node in nodeMap: # copy already exists
+                return nodeMap[node]
             copy = Node(node.val)
-            bookeeping[node] = copy
-            for nei in node.neighbors:
+            nodeMap[node] = copy
+            for nei in node.neighbors: # for the given node, make sure the copy also makes all the nodes
                 copy.neighbors.append(dfs(nei))
             return copy
-        return dfs(node) if node else None
+        return dfs(node)
+
+        
 
         

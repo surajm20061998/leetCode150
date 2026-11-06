@@ -1,3 +1,5 @@
+# Time complexity - O(n*roo(n))
+# Similar to coin change
 class Solution:
     def numSquares(self, n: int) -> int:
         dp = [n]*(n+1)
